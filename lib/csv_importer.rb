@@ -46,6 +46,8 @@ class CsvImporter
       org.eligibility = row[54]
       org.comment = row[60]
       org.hours = row[52]
+      org.former_name = row[140]
+      org.acronym = row[142]
 
       org.save
    end
