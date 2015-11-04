@@ -1,8 +1,9 @@
 class Organisation < ActiveRecord::Base
-  has_many :taggings
-  has_many :tags, through: :taggings
   has_many :contacts, dependent: :destroy
   validates :name, presence: true
+
+  belongs_to :street_state, class_name: "State", foreign_key: "street_state_id"
+  belongs_to :post_state, class_name: "State", foreign_key: "post_state_id"
 
   accepts_nested_attributes_for :contacts, allow_destroy: true
 

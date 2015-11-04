@@ -52,7 +52,7 @@
         <%= f.label :street_suburb %>
         <%= f.text_field :street_suburb, class: "form-control" %>
         <%= f.label :street_state %>
-        <%= f.text_field :street_state, class: "form-control" %>
+        <%= f.collection_select :street_state_id, State.all, :id, :name, {}, class: "form-control" %>
         <%= f.label :street_postcode %>
         <%= f.text_field :street_postcode, class: "form-control" %>
       </div>
@@ -63,7 +63,7 @@
         <%= f.label :post_suburb %>
         <%= f.text_field :post_suburb, class: "form-control" %>
         <%= f.label :post_state %>
-        <%= f.text_field :post_state, class: "form-control" %>
+        <%= f.collection_select :post_state_id, State.all, :id, :name, {}, class: "form-control" %>
         <%= f.label :post_postcode %>
         <%= f.text_field :post_postcode, class: "form-control" %>
       </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104003932) do
+ActiveRecord::Schema.define(version: 20151104063002) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "organisation_id", limit: 4
@@ -38,33 +38,20 @@ ActiveRecord::Schema.define(version: 20151104003932) do
     t.string   "street_address",    limit: 255
     t.integer  "street_postcode",   limit: 4
     t.string   "street_suburb",     limit: 255
-    t.string   "street_state",      limit: 255
+    t.integer  "street_state_id",   limit: 4
     t.string   "post_address",      limit: 255
     t.integer  "post_postcode",     limit: 4
     t.string   "post_suburb",       limit: 255
-    t.string   "post_state",        limit: 255
+    t.integer  "post_state_id",     limit: 4
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
 
-  create_table "taggings", force: :cascade do |t|
-    t.integer  "organisation_id", limit: 4
-    t.integer  "tag_id",          limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-  end
-
-  add_index "taggings", ["organisation_id"], name: "index_taggings_on_organisation_id", using: :btree
-  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
-
-  create_table "tags", force: :cascade do |t|
+  create_table "states", force: :cascade do |t|
     t.string   "name",       limit: 255
-    t.integer  "parent_id",  limit: 4
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
   add_foreign_key "contacts", "organisations"
-  add_foreign_key "taggings", "organisations"
-  add_foreign_key "taggings", "tags"
 end

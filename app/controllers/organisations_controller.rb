@@ -31,6 +31,7 @@ class OrganisationsController < ApplicationController
 
   def update
     @organisation.update(organisation_params)
+    @organisation.save
     redirect_to @organisation
   end
 
@@ -52,8 +53,8 @@ class OrganisationsController < ApplicationController
     params.require(:organisation).permit(
       :name, :aka, :acronym, :former_name, 
       :accreditation, :logo,
-      :street_address, :street_suburb, :street_state, :street_postcode,
-      :post_address, :post_suburb, :post_state, :post_postcode,
+      :street_address, :street_suburb, :street_postcode, :street_state_id,
+      :post_address, :post_suburb, :post_postcode, :post_state_id,
 
       contacts_attributes: [ :id, :c_type, :c_value, :comment ], 
     )

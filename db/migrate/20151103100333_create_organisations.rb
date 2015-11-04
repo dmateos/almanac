@@ -13,12 +13,12 @@ class CreateOrganisations < ActiveRecord::Migration
       t.string :street_address
       t.integer :street_postcode
       t.string :street_suburb
-      t.string :street_state
+      t.references :street_state
 
       t.string :post_address
       t.integer :post_postcode
       t.string :post_suburb
-      t.string :post_state
+      t.references :post_state
 
       t.timestamps null: false
     end

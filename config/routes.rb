@@ -4,6 +4,4 @@ Rails.application.routes.draw do
   get "listyourorganisation" => "pages#list_your_org"
 
   resources :organisations
-  resources :tags
-  resources :taggings
 end
