@@ -26,5 +26,7 @@ module Almanac
     config.generators do |g|
         g.test_framework :rspec
     end
+
+    config.autoload_paths << Rails.root.join('lib')
   end
 end
