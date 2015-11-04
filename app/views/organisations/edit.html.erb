@@ -72,10 +72,10 @@
     <div class="tab-pane" id="contacts-tab">
       <%= f.fields_for :contacts do |builder| %>
         <div class="form-group">
-          <%= builder.label :type %> 
-          <%= builder.text_field :type, class: "form-control" %>
-          <%= builder.label :value %> 
-          <%= builder.text_field :number, class: "form-control" %>
+          <%= builder.label :c_type %> 
+          <%= builder.text_field :c_type, class: "form-control" %>
+          <%= builder.label :c_value %> 
+          <%= builder.text_field :c_value, class: "form-control" %>
           <%= builder.label :comment %> 
           <%= builder.text_field :comment, class: "form-control" %>
         </div>

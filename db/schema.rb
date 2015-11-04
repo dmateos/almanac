@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20151104003932) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "organisation_id", limit: 4
-    t.string   "type",            limit: 255
-    t.integer  "number",          limit: 4
+    t.string   "c_type",          limit: 255
+    t.integer  "c_value",         limit: 4
     t.string   "comment",         limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20151104003932) do
     t.integer  "logo_file_size",    limit: 4
     t.datetime "logo_updated_at"
     t.string   "accreditation",     limit: 255
+    t.string   "website",           limit: 255
     t.string   "street_address",    limit: 255
     t.integer  "street_postcode",   limit: 4
     t.string   "street_suburb",     limit: 255

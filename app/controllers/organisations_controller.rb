@@ -30,7 +30,7 @@ class OrganisationsController < ApplicationController
   end
 
   def update
-    @organisation.update!(organisation_params)
+    @organisation.update(organisation_params)
     redirect_to @organisation
   end
 
@@ -53,7 +53,9 @@ class OrganisationsController < ApplicationController
       :name, :aka, :acronym, :former_name, 
       :accreditation, :logo,
       :street_address, :street_suburb, :street_state, :street_postcode,
-      :post_address, :post_suburb, :post_state, :post_postcode
+      :post_address, :post_suburb, :post_state, :post_postcode,
+
+      contacts_attributes: [ :id, :c_type, :c_value, :comment ], 
     )
   end
 end
