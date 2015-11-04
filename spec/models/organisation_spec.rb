@@ -11,6 +11,7 @@ RSpec.describe Organisation, type: :model do
 
   it "can hold contacts" do
     org = FactoryGirl.create(:organisation)
+    contact = FactoryGirl.create(:contact, organisation: org)
     expect(org.contacts.first.c_value).to eq("0408033220")
   end
 end

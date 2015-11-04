@@ -92,6 +92,7 @@ RSpec.describe OrganisationsController, type: :controller do
     context "with valid argument" do
       it "redirects to the organisation" do
         organisation = FactoryGirl.create(:organisation)
+        contact = FactoryGirl.create(:contact, organisation: organisation)
         patch :update, { id: organisation.id, organisation: { name: "updated name" } }
         expect(response).to redirect_to(organisation)
       end

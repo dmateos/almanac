@@ -57,6 +57,7 @@ class Organisation < ActiveRecord::Base
       org.services = row[61]
       org.eligibility = row[54]
       org.comment = row[60]
+      org.hours = row[52]
 
       org.save
     end
