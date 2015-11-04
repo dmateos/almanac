@@ -76,14 +76,26 @@
     <div class="tab-pane" id="contacts-tab">
       <%= f.fields_for :contacts do |builder| %>
         <div class="form-group">
-          <%= builder.label :c_type %> 
-          <%= builder.text_field :c_type, class: "form-control" %>
-          <%= builder.label :c_value %> 
+          <%= builder.label :c_type, "Contact type" %> 
+          <%= builder.select :c_type, Contact.c_types.keys.to_a.map { |w| [w.humanize, w] }, {}, class: "form-control" %>
+          <%= builder.label :c_value, "Contact value" %> 
           <%= builder.text_field :c_value, class: "form-control" %>
-          <%= builder.label :comment %> 
+          <%= builder.label :comment, "Comment" %> 
           <%= builder.text_field :comment, class: "form-control" %>
         </div>
       <% end %>
+    </div>
+
+    <div class="tab-pane" id="services-tab">
+      <%= f.label :services %>
+      <%= f.text_area :services, cols: "30", rows: "10", class: "form-control" %>
+
+      <%= f.label :eligibility %>
+      <%= f.text_area :eligibility, cols: "30", rows: "10", class: "form-control" %>
+
+      <%= f.label :comment %>
+      <%= f.text_area :comment, cols: "30", rows: "10", class: "form-control" %>
+
     </div>
 
     <div class="form-group">

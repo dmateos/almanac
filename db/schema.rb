@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20151104083137) do
   create_table "contacts", force: :cascade do |t|
     t.integer  "organisation_id", limit: 4
     t.string   "c_type",          limit: 255
-    t.integer  "c_value",         limit: 4
+    t.string   "c_value",         limit: 255
     t.string   "comment",         limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20151104083137) do
   end
 
   create_table "organisations", force: :cascade do |t|
-    t.string   "name",              limit: 255, null: false
+    t.string   "name",              limit: 255,   null: false
     t.string   "aka",               limit: 255
     t.string   "acronym",           limit: 255
     t.string   "former_name",       limit: 255
@@ -50,8 +50,11 @@ ActiveRecord::Schema.define(version: 20151104083137) do
     t.integer  "post_postcode",     limit: 4
     t.string   "post_suburb",       limit: 255
     t.integer  "post_state_id",     limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.text     "services",          limit: 65535
+    t.text     "eligibility",       limit: 65535
+    t.text     "comment",           limit: 65535
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "states", force: :cascade do |t|

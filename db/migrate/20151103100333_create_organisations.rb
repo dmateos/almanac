@@ -21,6 +21,10 @@ class CreateOrganisations < ActiveRecord::Migration
       t.string :post_suburb
       t.references :post_state
 
+      t.text :services
+      t.text :eligibility
+      t.text :comment
+
       t.timestamps null: false
     end
   end

@@ -3,7 +3,7 @@ class CreateContacts < ActiveRecord::Migration
     create_table :contacts do |t|
       t.references :organisation, index: true, foreign_key: true
       t.string :c_type
-      t.integer :c_value
+      t.string :c_value
       t.string :comment
 
       t.timestamps null: false

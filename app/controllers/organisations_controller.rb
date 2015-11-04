@@ -4,9 +4,11 @@ class OrganisationsController < ApplicationController
 
   def index
     @organisations = Organisation.all
+#    Organisation.import_from_csv("import.csv")
   end
 
   def show
+    @contact_group = @organisation.contacts.group_by(&:c_type)
   end
 
   def new
@@ -55,6 +57,7 @@ class OrganisationsController < ApplicationController
       :accreditation, :logo,
       :street_address, :street_suburb, :street_postcode, :street_state_id,
       :post_address, :post_suburb, :post_postcode, :post_state_id, :dataset_id, 
+      :services, :eligibility, :comment, 
 
       contacts_attributes: [ :id, :c_type, :c_value, :comment ], 
     )

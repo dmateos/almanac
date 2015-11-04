@@ -7,15 +7,31 @@
     <h2> <%= @organisation.name %> </h2>
     <h4> formerly <%= @organisation.former_name %> </h4>
 
-    <div class="jumbotron">
+    <div class="thumbnail">
       <div class="row">
         <div class="col-lg-6">
-          <%= @organisation.street_address %>
+          <div> <%= @organisation.street_address %> </div>
+
+          <% @contact_group.each do |c, n| %>
+            <% n.each do |k| %>
+              <div>
+                <%= k.c_value %>
+              </div>
+            <%end %>
+          <% end %>
         </div>
         <div class="col-lg-6">
 
         </div>
       </div>
+    </div>
+
+    <div>
+      <%= @organisation.comment %>
+    </div>
+
+    <div class="thumbnail">
+      <%= @organisation.services %>
     </div>
   </div>
 </div>

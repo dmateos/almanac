@@ -15,6 +15,8 @@ FactoryGirl.define do
     post_postcode 3141
     post_suburb "South Yarra"
     post_state { FactoryGirl.create(:state) }
+
+    contacts { FactoryGirl.create(:contact) }
   end
 
   factory :invalid_organisation, parent: :organisation do
