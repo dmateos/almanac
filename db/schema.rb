@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104063002) do
+ActiveRecord::Schema.define(version: 20151104083137) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "organisation_id", limit: 4
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 20151104063002) do
 
   add_index "contacts", ["organisation_id"], name: "index_contacts_on_organisation_id", using: :btree
 
+  create_table "datasets", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "organisations", force: :cascade do |t|
     t.string   "name",              limit: 255, null: false
     t.string   "aka",               limit: 255
@@ -34,6 +40,7 @@ ActiveRecord::Schema.define(version: 20151104063002) do
     t.integer  "logo_file_size",    limit: 4
     t.datetime "logo_updated_at"
     t.string   "accreditation",     limit: 255
+    t.integer  "dataset_id",        limit: 4
     t.string   "website",           limit: 255
     t.string   "street_address",    limit: 255
     t.integer  "street_postcode",   limit: 4

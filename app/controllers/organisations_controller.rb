@@ -54,7 +54,7 @@ class OrganisationsController < ApplicationController
       :name, :aka, :acronym, :former_name, 
       :accreditation, :logo,
       :street_address, :street_suburb, :street_postcode, :street_state_id,
-      :post_address, :post_suburb, :post_postcode, :post_state_id,
+      :post_address, :post_suburb, :post_postcode, :post_state_id, :dataset_id, 
 
       contacts_attributes: [ :id, :c_type, :c_value, :comment ], 
     )

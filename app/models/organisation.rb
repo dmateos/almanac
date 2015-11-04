@@ -4,6 +4,7 @@ class Organisation < ActiveRecord::Base
 
   belongs_to :street_state, class_name: "State", foreign_key: "street_state_id"
   belongs_to :post_state, class_name: "State", foreign_key: "post_state_id"
+  belongs_to :dataset
 
   accepts_nested_attributes_for :contacts, allow_destroy: true
 

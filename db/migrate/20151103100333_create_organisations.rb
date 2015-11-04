@@ -7,6 +7,7 @@ class CreateOrganisations < ActiveRecord::Migration
       t.string :former_name
       t.attachment :logo
       t.string :accreditation
+      t.references :dataset
 
       t.string :website
 

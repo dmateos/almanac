@@ -10,3 +10,7 @@
 ["SA", "VIC", "TAS", "NSW", "ACT", "WA", "NT"].each { |s| 
   State.create({ name: s }) 
 }
+
+["Adelaide Hills", "Salisbury Council"].each { |d|
+  Dataset.create({ name: d })
+}
