@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe OrganisationsController, type: :controller do
   describe "GET #index" do
-    it "returns a http success" do
+    it "returns http success" do
       get :index
       expect(response).to have_http_status :success
     end
@@ -49,6 +49,11 @@ RSpec.describe OrganisationsController, type: :controller do
           post :create, organisation: FactoryGirl.attributes_for(:organisation)
         }.to change(Organisation, :count).by(1)
       end
+
+      it "redirects to #edit" do
+          post :create, organisation: FactoryGirl.attributes_for(:organisation)
+          expect(response).to redirect_to(edit_organisation_path(Organisation.first))
+      end
     end
 
     context "with invalid attributes" do
@@ -58,7 +63,7 @@ RSpec.describe OrganisationsController, type: :controller do
         }.to_not change(Organisation, :count)
       end
 
-      it "re-renders the :new template" do
+      it "renders the #new view" do
         post :create, organisation: FactoryGirl.attributes_for(:invalid_organisation)
         expect(response).to render_template :new
       end
@@ -90,18 +95,18 @@ RSpec.describe OrganisationsController, type: :controller do
 
   describe "PATCH #update" do
     context "with valid argument" do
-      it "redirects to the organisation" do
-        organisation = FactoryGirl.create(:organisation)
-        contact = FactoryGirl.create(:contact, organisation: organisation)
-        patch :update, { id: organisation.id, organisation: { name: "updated name" } }
-        expect(response).to redirect_to(organisation)
-      end
-
       it "modifies an organisation" do
         organisation = FactoryGirl.create(:organisation)
         patch :update, { id: organisation.id, organisation: { name: "updated name" } }
         organisation.reload
         expect(organisation.name).to eq("updated name")
+      end
+
+      it "redirects to #show" do
+        organisation = FactoryGirl.create(:organisation)
+        contact = FactoryGirl.create(:contact, organisation: organisation)
+        patch :update, { id: organisation.id, organisation: { name: "updated name" } }
+        expect(response).to redirect_to(organisation)
       end
     end
 
