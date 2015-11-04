@@ -39,103 +39,15 @@ body {
   margin-right: 10px;
 }
 
-.search-container {
-  background-color: #000;
-  min-height: 133px;
-  padding-top: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.search-container label {
-  font-size: 24px;
-  color: white;
-}
-
-.search-field {
-  height: 51px;
-  border: none;
-  outline: none;
-  line-height: 51px;
-  font-size: 28px;
-}
-
-.menu-container {
-  background-color: #000;
-}
-
-.menu-container li a { 
-  color: #fff;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.menu-container .dropdown-menu {
-  background-color: #eaab0a;
-}
-
-.menu-container .dropdown-menu li a {
-  color: #000;
-}
-
-.navbar-default .navbar-brand {
-  color: #000;
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.navbar .top-logos img {
-  margin-top: 10px;
-  margin-right: 10px;
-}
-
-.search-container {
-  background-color: #000;
-  min-height: 133px;
-  padding-top: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.search-container label {
-  font-size: 24px;
-  color: white;
-}
-
-.search-field {
-  height: 51px;
-  border: none;
-  outline: none;
-  line-height: 51px;
-  font-size: 28px;
-}
-
-.menu-container {
-  background-color: #000;
-}
-
-.menu-container li a { 
-  color: #fff;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.navbar-default .navbar-brand {
-  color: #000;
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.navbar .top-logos img {
-  margin-top: 10px;
-  margin-right: 10px;
-}
-
 .nav>li>a:hover, .nav>li>a:focus,
 .nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
   background-color: #eaab0a;
 }
 
+.main-container {
+  padding-top: 40px;
+}
+
 .search-container {
   background-color: #000;
   min-height: 133px;
@@ -175,49 +87,4 @@ body {
   color: #000;
 }
 
-.navbar-default .navbar-brand {
-  color: #000;
-  font-size: 30px;
-  font-weight: bold;
-}
 
-.navbar .top-logos img {
-  margin-top: 10px;
-  margin-right: 10px;
-}
-
-.search-container {
-  background-color: #000;
-  min-height: 133px;
-  padding-top: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.search-container label {
-  font-size: 24px;
-  color: white;
-}
-
-.search-field {
-  height: 51px;
-  border: none;
-  outline: none;
-  line-height: 51px;
-  font-size: 28px;
-}
-
-.menu-container {
-  background-color: #000;
-}
-
-.menu-container li a { 
-  color: #fff;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-
-.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
-
-}

@@ -1,2 +1,90 @@
-<h1>Organisations#edit</h1>
-<p>Find me in app/views/organisations/edit.html.erb</p>
+<ul class="nav nav-tabs">
+  <li class="active" role="presentation"> <a href="#name-tab" data-toggle="pill"> Name </a></li>
+  <li role="presentation"> <a href="#address-tab" data-toggle="pill"> Address </a></li>
+  <li role="presentation"> <a href="#contacts-tab" data-toggle="pill"> Contacts </a></li>
+  <li role="presentation"> <a href="#services-tab" data-toggle="pill"> Services </a></li>
+  <li role="presentation"> <a href="#subjects-tab" data-toggle="pill"> Subjects </a></li>
+  <li role="presentation"> <a href="#social-tab" data-toggle="pill"> Social </a></li>
+</ul>
+
+<%= form_for(@organisation) do |f| %>
+  <div class="tab-content">
+    <div class="tab-pane active" id="name-tab">
+      <div class="form-group">
+        <%= f.label :name, "Organisation name" %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :aka, "Also Known As" %>
+        <%= f.text_field :aka, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :acronym, "Acroynm" %>
+        <%= f.text_field :acronym, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :former_name, "Former name" %>
+        <%= f.text_field :former_name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :accreditation, "Accreditation" %>
+        <%= f.text_field :accreditation, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :logo, class: "control-label" %>
+        <div class="controls">
+          <%= f.file_field :logo, class: "form-control" %>
+        </div>
+        <%= error_span(@organisation[:logo]) %>
+      </div>
+
+    </div>
+
+    <div class="tab-pane" id="address-tab"> 
+      <div class="form-group">
+        <%= f.label :street_address %>
+        <%= f.text_field :street_address, class: "form-control" %>
+        <%= f.label :street_suburb %>
+        <%= f.text_field :street_suburb, class: "form-control" %>
+        <%= f.label :street_state %>
+        <%= f.text_field :street_state, class: "form-control" %>
+        <%= f.label :street_postcode %>
+        <%= f.text_field :street_postcode, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :post_address %>
+        <%= f.text_field :post_address, class: "form-control" %>
+        <%= f.label :post_suburb %>
+        <%= f.text_field :post_suburb, class: "form-control" %>
+        <%= f.label :post_state %>
+        <%= f.text_field :post_state, class: "form-control" %>
+        <%= f.label :post_postcode %>
+        <%= f.text_field :post_postcode, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="contacts-tab">
+      <%= f.fields_for :contacts do |builder| %>
+        <div class="form-group">
+          <%= builder.label :type %> 
+          <%= builder.text_field :type, class: "form-control" %>
+          <%= builder.label :value %> 
+          <%= builder.text_field :number, class: "form-control" %>
+          <%= builder.label :comment %> 
+          <%= builder.text_field :comment, class: "form-control" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Save", class: "btn btn-primary" %>
+    </div>
+
+  </div>
+<% end %>

@@ -8,6 +8,8 @@ class CreateOrganisations < ActiveRecord::Migration
       t.attachment :logo
       t.string :accreditation
 
+      t.string :website
+
       t.string :street_address
       t.integer :street_postcode
       t.string :street_suburb
@@ -17,8 +19,6 @@ class CreateOrganisations < ActiveRecord::Migration
       t.integer :post_postcode
       t.string :post_suburb
       t.string :post_state
-
-      #dataset tag
 
       t.timestamps null: false
     end
