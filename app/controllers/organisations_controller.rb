@@ -4,7 +4,7 @@ class OrganisationsController < ApplicationController
 
   def index
     @organisations = Organisation.all
-    #CsvImporter.new.import_organisations("import.csv")
+#    CsvImporter.new.import_organisations("import.csv")
   end
 
   def show
@@ -57,7 +57,7 @@ class OrganisationsController < ApplicationController
       :accreditation, :logo,
       :street_address, :street_suburb, :street_postcode, :street_state_id,
       :post_address, :post_suburb, :post_postcode, :post_state_id, :dataset_id, 
-      :services, :eligibility, :comment, 
+      :services, :eligibility, :comment, :dataset,
 
       contacts_attributes: [ :id, :c_type, :c_value, :comment ], 
     )

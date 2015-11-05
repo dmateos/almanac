@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104155943) do
+ActiveRecord::Schema.define(version: 20151105055301) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "organisation_id", limit: 4
@@ -24,8 +24,16 @@ ActiveRecord::Schema.define(version: 20151104155943) do
 
   add_index "contacts", ["organisation_id"], name: "index_contacts_on_organisation_id", using: :btree
 
+  create_table "councils", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "cuid",       limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "datasets", force: :cascade do |t|
     t.string   "name",       limit: 255
+    t.string   "dataset_id", limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

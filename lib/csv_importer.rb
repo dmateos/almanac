@@ -1,10 +1,25 @@
 require "csv"
 
 class CsvImporter
-  def import_organisations(file)
-     CSV.foreach(file, :headers => true) do |row|
-      first = row if first.nil?
 
+  def import_subjects
+
+  end
+
+  def import_councils(file)
+    CSV.foreach(file, headers: true) do |row|
+      council = Council.create({ cu_id: row[0], name: row[1]} )
+    end
+  end
+
+  def import_datasets(file)
+    CSV.foreach(file, headers: true) do |row|
+      dataset = Dataset.create({ dataset_id: row[0], name: row[1] })
+    end
+  end
+
+  def import_organisations(file)
+     CSV.foreach(file, headers: true) do |row|
       org = Organisation.new
       org.name = row[0]
 
@@ -17,6 +32,8 @@ class CsvImporter
       org.post_suburb = row[10]
       org.post_postcode = row[11]
       org.post_state = State.find_by_name(row[12])
+
+      org.dataset = Dataset.find_by_dataset_id(row[67])
 
       org.aka = row[129]
 

@@ -14,3 +14,8 @@
 ["Adelaide Hills", "Salisbury Council"].each { |d|
   Dataset.create({ name: d })
 }
+
+importer = CsvImporter.new
+importer.import_datasets(File.join(Rails.root, "db", "seed_data", "datasets.csv"))
+importer.import_councils(File.join(Rails.root, "db", "seed_data", "councils.csv"))
+

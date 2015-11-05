@@ -75,7 +75,7 @@
 
             <div class="col-sm-4 form-group">
               <%= label_tag "Location"  %>
-              <%= text_field_tag :search_location, nil, class: "form-control search-field" %>
+              <%= select_tag :councils, options_from_collection_for_select(Council.all, "id", "name"), class: "form-control seach-field" %>
             </div>
 
             <div class="col-sm-2 form-group">
