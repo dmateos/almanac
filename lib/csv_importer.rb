@@ -2,8 +2,10 @@ require "csv"
 
 class CsvImporter
 
-  def import_subjects
-
+  def import_subjects_and_hierarchy(subjects_file, hierarchy_file)
+    CSV.foreach(subjects_file, headers: true) do |row| 
+      subject = Subject.create({ cu_id: row[0], name: row[1], cu_parent_id: row[2] })
+    end
   end
 
   def import_councils(file)
@@ -70,6 +72,7 @@ class CsvImporter
    end
   end
 
+  private
   def new_contact(organisation, type, data = nil, comment = nil)
     organisation.contacts << Contact.create(c_type: type, c_value: data, comment: comment) if data
   end

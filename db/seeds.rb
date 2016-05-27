@@ -18,4 +18,5 @@
 importer = CsvImporter.new
 importer.import_datasets(File.join(Rails.root, "db", "seed_data", "datasets.csv"))
 importer.import_councils(File.join(Rails.root, "db", "seed_data", "councils.csv"))
+importer.import_subjects(File.join(Rails.root, "db", "seed_data", "subjects.csv"))
 
