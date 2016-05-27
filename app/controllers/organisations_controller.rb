@@ -4,7 +4,6 @@ class OrganisationsController < ApplicationController
 
   def index
     @organisations = Organisation.all
-#    CsvImporter.new.import_organisations("import.csv")
   end
 
   def show

@@ -2,9 +2,13 @@ require "csv"
 
 class CsvImporter
 
-  def import_subjects_and_hierarchy(subjects_file, hierarchy_file)
-    CSV.foreach(subjects_file, headers: true) do |row| 
-      subject = Subject.create({ cu_id: row[0], name: row[1], cu_parent_id: row[2] })
+  def import_subjects(subjects_file)
+    CSV.foreach(subjects_file, headers: false) do |row| 
+      subject = Subject.create( { name: row[2], id: row[1] } )
+
+      row[3..row.count].each do | parent_id |
+        SubjectLink.create( { child_id: subject.id, parent_id: parent_id } ) unless parent_id.to_i == 0
+      end
     end
   end
 
