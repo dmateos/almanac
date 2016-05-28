@@ -1,3 +1,3 @@
 class Dataset < ActiveRecord::Base
-  has_one :organisation
+  has_many :organisations
 end
