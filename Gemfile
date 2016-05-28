@@ -55,3 +55,6 @@ gem "twitter-bootstrap-rails"
 gem "paperclip"
 gem 'bcrypt'
 gem 'kaminari'
+gem "elasticsearch-rails"
+gem "elasticsearch-model"
+
