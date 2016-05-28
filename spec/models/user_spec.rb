@@ -38,4 +38,16 @@ RSpec.describe User, type: :model do
       expect(FactoryGirl.build(:user, position: nil)).to_not be_valid
     end
   end
+
+  context "authentication" do
+    let(:user) { FactoryGirl.create(:user, username: "test", password: "test", email: "test@test.com") }
+
+    it "authenticates with a valid username/password" do 
+      expect(user.authenticate("test")).to eq(user)
+    end
+
+    it "does not authenticate with an invalid password" do
+      expect(user.authenticate("wrong")).to eq(false)
+    end
+  end
 end

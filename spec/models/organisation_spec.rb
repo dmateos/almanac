@@ -42,4 +42,14 @@ RSpec.describe Organisation, type: :model do
       expect(org.post_state).to eq(postal_state)
     end
   end
+
+  context "subjects" do
+    let(:subject_one) { FactoryGirl.create(:subject) }
+    let(:subject_two) { FactoryGirl.create(:subject) }
+    let(:organisation) { FactoryGirl.create(:organisation, subjects: [ subject_one, subject_two ]) }
+
+    it "is able to hold multiple subjects" do
+      expect(organisation.subjects).to eq([subject_one, subject_two])
+    end
+  end
 end

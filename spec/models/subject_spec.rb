@@ -42,5 +42,30 @@ RSpec.describe Subject, type: :model do
         expect(Subject.top_level).to_not eq([child_subject, child_subject_two])
       end
     end
+
+    context "multiple parent/child subjects" do
+      let!(:parent_subject) { FactoryGirl.create(:subject, name: "test") }
+      let!(:parent_subject_two) { FactoryGirl.create(:subject, name: "test") }
+      let!(:child_subject) { FactoryGirl.create(:subject, name: "test", parents: [ parent_subject, parent_subject_two ]) }
+      let!(:child_subject_two) { FactoryGirl.create(:subject, name: "test", parents: [ parent_subject ]) }
+
+      it "finds multiple parents a given child is assigned" do
+        expect(child_subject.parents).to eq([parent_subject, parent_subject_two])
+      end
+
+      it "finds multiple children subjects a given parent is assigned" do
+        expect(parent_subject.children).to eq([child_subject, child_subject_two])
+      end
+    end
+
+    context "organisations" do
+      it "is able to grab all organisations for a given parent subject" do
+
+      end
+
+      it "is able to grab all organisations for a given child subject" do
+
+      end
+    end
   end
 end
