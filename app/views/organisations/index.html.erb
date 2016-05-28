@@ -1,3 +1,11 @@
+<h1> Organisations A-Z </h1>
+
+<ul class="pagination">
+  <% ("A".."Z").each do |letter| %>
+    <li> <%= link_to letter, organisations_path(limit: letter) %> </li>    
+  <% end %>
+</ul>
+
 <% @organisations.each do |org| %>
   <ul>
     <li> <%= link_to org.name, org %> </li>

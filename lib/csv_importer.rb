@@ -43,27 +43,27 @@ class CsvImporter
 
       org.aka = row[129]
 
-      new_contact(org, 0, row[13], row[14])
-      new_contact(org, 0, row[15], row[16])
-      new_contact(org, 0, row[17], row[18])
-      new_contact(org, 0, row[19], row[20])
-      new_contact(org, 0, row[21], row[22])
+      new_contact(org, :phone, row[13], row[14])
+      new_contact(org, :phone, row[15], row[16])
+      new_contact(org, :phone, row[17], row[18])
+      new_contact(org, :phone, row[19], row[20])
+      new_contact(org, :phone, row[21], row[22])
       
-      new_contact(org, 1, row[23], row[24])
-      new_contact(org, 1, row[25], row[26])
-      new_contact(org, 1, row[27], row[28])
-      new_contact(org, 1, row[29], row[30])
+      new_contact(org, :mobile, row[23], row[24])
+      new_contact(org, :mobile, row[25], row[26])
+      new_contact(org, :mobile, row[27], row[28])
+      new_contact(org, :mobile, row[29], row[30])
       
-      new_contact(org, 3, row[31], row[32])
-      new_contact(org, 3, row[33], row[34])
-      new_contact(org, 3, row[35], row[36])
-      new_contact(org, 3, row[37], row[38])
+      new_contact(org, :fax, row[31], row[32])
+      new_contact(org, :fax, row[33], row[34])
+      new_contact(org, :fax, row[35], row[36])
+      new_contact(org, :fax, row[37], row[38])
 
-      new_contact(org, 2, row[45], nil)
-      new_contact(org, 2, row[47], nil)
-      new_contact(org, 2, row[48], nil)
+      new_contact(org, :email, row[45], nil)
+      new_contact(org, :email, row[47], nil)
+      new_contact(org, :email, row[48], nil)
 
-      new_contact(org, 4, row[46], nil)
+      new_contact(org, :website, row[46], nil)
 
       org.services = row[61]
       org.eligibility = row[54]
@@ -77,12 +77,15 @@ class CsvImporter
         subjects.each do |s| 
           if subject = Subject.find_by_name(s)
             org.subjects << subject
-            puts s
           end
         end
       end
 
-      org.save
+        if org.save!
+          puts "save org #{org.name}"
+        else
+          puts "could not save org #{org.name}"
+        end
    end
   end
 

@@ -24,7 +24,7 @@ class CreateOrganisations < ActiveRecord::Migration
       t.text :services
       t.text :eligibility
       t.text :comment
-      t.string :hours
+      t.text :hours
 
       t.timestamps null: false
     end

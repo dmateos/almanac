@@ -1,0 +1,6 @@
+<h1> Services A-Z </h1>
+<% @subjects.each do |s| %>
+  <ul>
+    <li> <%= link_to "#{s.name} (#{s.organisations.count})", s %> </li>
+  </ul>
+<% end %>

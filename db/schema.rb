@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20160528103043) do
     t.text     "services",          limit: 65535
     t.text     "eligibility",       limit: 65535
     t.text     "comment",           limit: 65535
-    t.string   "hours",             limit: 255
+    t.text     "hours",             limit: 65535
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end

@@ -3,7 +3,11 @@ class OrganisationsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found  
 
   def index
-    @organisations = Organisation.all
+    if params[:limit]
+      @organisations = Organisation.starts_with(params[:limit]).order(:name)
+    else
+      @organisations = Organisation.all.order(:name)
+    end
   end
 
   def show

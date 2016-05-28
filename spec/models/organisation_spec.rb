@@ -52,4 +52,17 @@ RSpec.describe Organisation, type: :model do
       expect(organisation.subjects).to eq([subject_one, subject_two])
     end
   end
+
+  context "starts with" do
+    let(:organisation_a) { FactoryGirl.create(:organisation, name: "a test org") }
+    let(:organisation_b) { FactoryGirl.create(:organisation, name: "b test org") }
+
+    it "returns the organisations that start with the given letter" do
+      expect(Organisation.starts_with("a")).to eq([organisation_a])
+    end
+
+    it "does not return organisations that do not start with the given letter" do
+      expect(Organisation.starts_with("a")).to_not eq([organisation_b])
+    end
+  end
 end

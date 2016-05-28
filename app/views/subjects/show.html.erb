@@ -1,0 +1,6 @@
+<h1> Organisations under <%= "#{@subject.name}" %> </h1>
+<% @organisations.each do |org| %>
+  <ul>
+    <li> <%= link_to "#{org.name}", org %> </li>
+  </ul>
+<% end %>

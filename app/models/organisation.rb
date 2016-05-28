@@ -14,4 +14,6 @@ class Organisation < ActiveRecord::Base
   accepts_nested_attributes_for :contacts, allow_destroy: true
   has_attached_file :logo, styles: { normal: "100x100" }, default_url: "images/:style/missing.png"
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
+
+  scope :starts_with, -> (letter) { where("name LIKE :prefix", prefix: "#{letter}%") }
 end

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "listyourorganisation" => "pages#list_your_org"
 
   resources :organisations
+  resources :subjects
 
   get "login" => "sessions#new"
   post "login" => "sessions#create"
