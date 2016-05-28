@@ -1,6 +1,9 @@
 class Organisation < ActiveRecord::Base
   has_many :contacts, dependent: :destroy
 
+  has_many :organisation_subjects
+  has_many :subjects, through: :organisation_subjects
+
   belongs_to :street_state, class_name: "State", foreign_key: "street_state_id"
   belongs_to :post_state, class_name: "State", foreign_key: "post_state_id"
   belongs_to :dataset

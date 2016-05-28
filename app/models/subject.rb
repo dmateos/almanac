@@ -5,5 +5,8 @@ class Subject < ActiveRecord::Base
   has_many :parent_links, class_name: "SubjectLink", foreign_key: "child_id"
   has_many :parents, through: :parent_links
 
+  has_many :organisation_subjects
+  has_many :organisations, through: :organisation_subjects
+
   scope :top_level, -> { includes(:parent_links).where( subject_links: { parent_id: nil } ) }
 end

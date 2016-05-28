@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527194334) do
+ActiveRecord::Schema.define(version: 20160528103043) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "organisation_id", limit: 4
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 20160527194334) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "organisation_subjects", force: :cascade do |t|
+    t.integer  "organisation_id", limit: 4
+    t.integer  "subject_id",      limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "organisation_subjects", ["organisation_id"], name: "index_organisation_subjects_on_organisation_id", using: :btree
+  add_index "organisation_subjects", ["subject_id"], name: "index_organisation_subjects_on_subject_id", using: :btree
 
   create_table "organisations", force: :cascade do |t|
     t.string   "name",              limit: 255,   null: false
@@ -97,4 +107,6 @@ ActiveRecord::Schema.define(version: 20160527194334) do
   end
 
   add_foreign_key "contacts", "organisations"
+  add_foreign_key "organisation_subjects", "organisations"
+  add_foreign_key "organisation_subjects", "subjects"
 end

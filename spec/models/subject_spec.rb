@@ -59,12 +59,17 @@ RSpec.describe Subject, type: :model do
     end
 
     context "organisations" do
-      it "is able to grab all organisations for a given parent subject" do
+      let(:subject_one) { FactoryGirl.create(:subject) }
+      let(:organisation) { FactoryGirl.create(:organisation, subjects: [ subject_one ]) }
+      let(:organisation_two) { FactoryGirl.create(:organisation, subjects: [ subject_one ]) }
 
+      it "is able to grab all organisations for a given parent subject" do
+      
       end
 
-      it "is able to grab all organisations for a given child subject" do
 
+      it "is able to grab all organisations for a given subject" do
+        expect(subject_one.organisations).to eq([ organisation, organisation_two ]) 
       end
     end
   end
