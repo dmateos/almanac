@@ -72,6 +72,16 @@ class CsvImporter
       org.former_name = row[140]
       org.acronym = row[142]
 
+      if row[62] and not row[62].empty?
+        subjects = row[62].split("^").select { |s| !s.empty? }.map { |s| s.split(",")[0] }
+        subjects.each do |s| 
+          if subject = Subject.find_by_name(s)
+            org.subjects << subject
+            puts s
+          end
+        end
+      end
+
       org.save
    end
   end
