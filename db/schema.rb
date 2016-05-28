@@ -87,6 +87,9 @@ ActiveRecord::Schema.define(version: 20160528103043) do
     t.integer "child_id",  limit: 4
   end
 
+  add_index "subject_links", ["child_id"], name: "index_subject_links_on_child_id", using: :btree
+  add_index "subject_links", ["parent_id"], name: "index_subject_links_on_parent_id", using: :btree
+
   create_table "subjects", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false

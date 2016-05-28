@@ -8,9 +8,12 @@
 
 <ul class="list-group">
   <% @subjects.each do |s| %>
-      <li class="list-group-item"> 
-        <span class="badge"> <%= "#{s.organisations.count}" %> </span>
-        <%= link_to s.name, s %> 
-      </li>
+      <% count = s.organisations.count %>
+      <% if count > 0 %>
+        <li class="list-group-item"> 
+          <span class="badge"> <%= "#{count}" %> </span>
+          <%= link_to s.name, s %> 
+        </li>
+      <% end %>
   <% end %>
 </ul>
