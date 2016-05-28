@@ -15,9 +15,7 @@ FactoryGirl.define do
     post_postcode 3141
     post_suburb "South Yarra"
     post_state { FactoryGirl.create(:state) }
-  end
 
-  factory :invalid_organisation, parent: :organisation do
-    name nil
+    dataset { FactoryGirl.create(:dataset) }
   end
 end
