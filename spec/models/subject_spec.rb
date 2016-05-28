@@ -73,4 +73,18 @@ RSpec.describe Subject, type: :model do
       end
     end
   end
+
+  context "starts with" do
+    let(:subject_a) { FactoryGirl.create(:subject, name: "a test subject") }
+    let(:subject_b) { FactoryGirl.create(:subject, name: "b test subject") }
+
+    it "returns the subjects that start with the given letter" do
+      expect(Subject.starts_with("a")).to eq([subject_a])
+    end
+
+    it "does not return subjects that do not start with the given letter" do
+      expect(Subject.starts_with("a")).to_not eq([subject_b])
+    end
+  end
+
 end

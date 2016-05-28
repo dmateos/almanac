@@ -2,7 +2,11 @@ class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy ]
 
   def index
-    @subjects = Subject.includes(:organisations).order(:name)
+    if params[:limit]
+      @subjects = Subject.starts_with(params[:limit]).order(:name)
+    else
+      @subjects = Subject.includes(:organisations).order(:name)
+    end
   end
 
   def show

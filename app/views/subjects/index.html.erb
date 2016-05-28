@@ -1,4 +1,11 @@
 <h1> Services A-Z </h1>
+
+<ul class="pagination">
+  <% ("A".."Z").each do |letter| %>
+    <li> <%= link_to letter, subjects_path(limit: letter) %> </li>
+  <% end %>
+</ul>
+
 <% @subjects.each do |s| %>
   <ul>
     <li> <%= link_to "#{s.name} (#{s.organisations.count})", s %> </li>

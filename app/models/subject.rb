@@ -9,4 +9,6 @@ class Subject < ActiveRecord::Base
   has_many :organisations, through: :organisation_subjects
 
   scope :top_level, -> { includes(:parent_links).where( subject_links: { parent_id: nil } ) }
+
+  scope :starts_with, -> (letter) { where("name LIKE :prefix", prefix: "#{letter}%") }
 end
