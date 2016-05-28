@@ -6,8 +6,11 @@
   <% end %>
 </ul>
 
-<% @subjects.each do |s| %>
-  <ul>
-    <li> <%= link_to "#{s.name} (#{s.organisations.count})", s %> </li>
-  </ul>
-<% end %>
+<ul class="list-group">
+  <% @subjects.each do |s| %>
+      <li class="list-group-item"> 
+        <span class="badge"> <%= "#{s.organisations.count}" %> </span>
+        <%= link_to s.name, s %> 
+      </li>
+  <% end %>
+</ul>

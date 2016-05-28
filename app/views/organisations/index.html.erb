@@ -6,9 +6,9 @@
   <% end %>
 </ul>
 
-<% @organisations.each do |org| %>
-  <ul>
-    <li> <%= link_to org.name, org %> </li>
-  </ul>
-<% end %>
+<ul class="list-group">
+  <% @organisations.each do |org| %>
+      <li class="list-group-item"> <%= link_to org.name, org %> </li>
+  <% end %>
+</ul>
 

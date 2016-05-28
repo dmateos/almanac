@@ -1,6 +1,18 @@
 <div class="row">
   <div class="col-lg-4">
-    LOGO 
+    <div class="row">
+      LOGO 
+    </div>
+    <div class="row">
+      <ul class="list-group">
+        <% @organisation.subjects.each do |s| %>
+          <li class="list-group-item"> 
+            <span class="badge"> <%= "#{s.organisations.count}" %> </span>
+            <%= link_to s.name, s %> 
+          </li>
+        <% end %>
+      </li>
+    </div>
   </div>
 
   <div class="col-lg-8">

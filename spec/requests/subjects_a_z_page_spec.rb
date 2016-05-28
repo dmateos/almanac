@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Organisation A-Z listing page /organisations" do
+RSpec.describe "Subject A-Z listing page /subjects" do
   it "loads the page" do
     visit subjects_path
     expect(page).to have_content("Services A-Z")

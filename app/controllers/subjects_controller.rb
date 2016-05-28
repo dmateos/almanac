@@ -10,7 +10,7 @@ class SubjectsController < ApplicationController
   end
 
   def show
-    @organisations = @subject.organisations
+    @organisations = @subject.organisations.order(:name)
   end
 
   private
