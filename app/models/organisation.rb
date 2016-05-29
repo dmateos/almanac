@@ -1,6 +1,8 @@
 class Organisation < ActiveRecord::Base
-  has_many :contacts, dependent: :destroy
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 
+  has_many :contacts, dependent: :destroy
   has_many :organisation_subjects
   has_many :subjects, through: :organisation_subjects
 
@@ -16,4 +18,11 @@ class Organisation < ActiveRecord::Base
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
 
   scope :starts_with, -> (letter) { where("name LIKE :prefix", prefix: "#{letter}%") }
+
+  def as_indexed_json(options = {}) 
+    as_json(
+      only: [:name, :aka, :comment, :services],
+      include: [:subjects]
+    )
+  end
 end
