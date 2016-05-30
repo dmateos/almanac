@@ -8,9 +8,14 @@ RSpec.describe "Search /search/" do
   end
 
   context "searching for organisations" do
-    let!(:organisation) { FactoyGirl.create(:organisation, name: "test org") }
+    before :all do
+      Organisation.__elasticsearch__.create_index!(force: true)
+    end
 
     it "searches for a given organisation and the organisation is found" do
+      organisation = FactoryGirl.create(:organisation, name: "test org")
+      Organisation.import
+
       visit root_path
       fill_in("search", with: "test org")
       click_button("submit")

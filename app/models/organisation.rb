@@ -1,6 +1,7 @@
 class Organisation < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
+  index_name [Rails.env, self.base_class.to_s.pluralize.underscore].join('_')
 
   has_many :contacts, dependent: :destroy
   has_many :organisation_subjects
@@ -25,4 +26,6 @@ class Organisation < ActiveRecord::Base
       include: [:subjects]
     )
   end
+
+
 end
