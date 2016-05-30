@@ -57,4 +57,4 @@ gem 'bcrypt'
 gem 'kaminari'
 gem "elasticsearch-rails"
 gem "elasticsearch-model"
-
+gem 'holder_rails'

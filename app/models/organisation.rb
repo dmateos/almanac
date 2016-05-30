@@ -26,6 +26,4 @@ class Organisation < ActiveRecord::Base
       include: [:subjects]
     )
   end
-
-
 end
